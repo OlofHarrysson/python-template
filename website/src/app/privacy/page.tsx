@@ -5,11 +5,11 @@ import { getSEOTags } from "@/lib/seo";
 // You are an excellent lawyer.
 
 // I need your help to write a simple Privacy Policy for my website. Here is some context:
-// - Contact information: olof@tandemfuture.com
-// - User data collected: name, email and payment information
+// - Contact information: siteConfig.resend.fromAdmin.match(/<(.+?)>/)?.[1]
+// - User data collected: none
 // - Non-personal data collection: web cookies
 // - Data storage location: EU servers
-// - Data retention: As long as necessary for service provision
+// - Data retention: None
 // - User rights: Access, correct, delete their data
 // - Governing Law: Sweden
 
@@ -27,48 +27,45 @@ Last updated: ${lastUpdated}
 
 At ${
   siteConfig.name
-}, we value your privacy and aim to be transparent about how we handle your information.
+}, we value your privacy and aim to be transparent about how we handle information.
 
 1. Information We Collect
 
-- Account information: When you register, we collect your name and email
-- Payment information: When you make purchases (processed securely through our payment provider)
-- Usage data: Basic analytics and cookies to improve our service
+We do not collect any personal user data. Our platform uses:
+- Essential cookies: For basic website functionality
+- No account data is stored or retained
 
-2. How We Use Your Information
+2. How We Use Cookies
 
-- To provide and maintain our services
-- To process your transactions
-- To send important service updates
-- To improve your experience
+- To provide core website functionality
+- To remember basic preferences during your session
+- We do not use cookies for tracking or advertising purposes
 
 3. Data Protection
 
-- We store data securely on EU servers
-- We only keep your data as long as necessary
-- We never sell your personal information
-- We use industry-standard security measures
+- We do not store any personal data
+- Our service runs on EU servers
+- We implement industry-standard security measures to protect our infrastructure
 
 4. Your Rights
 
-You can:
-- Access your personal data
-- Update your information
-- Delete your account
-- Opt out of communications
+Even though we don't collect personal data, you have the right to:
+- Know what cookies are being used
+- Clear cookies through your browser settings
+- Contact us with any privacy concerns
 
-5. Cookies
+5. Third-Party Services
 
-We use essential cookies to keep you logged in and analytics cookies to improve our service. You can control cookie settings in your browser.
+Our platform helps you discover custom feeds on the AT Protocol (Bluesky). We do not control the content or privacy practices of these third-party feeds.
 
-6. Updates
+6. Updates to Privacy Policy
 
-We may update this policy occasionally. We'll notify you of significant changes.
+We may update this policy occasionally. Changes will be effective immediately upon posting to our website.
 
 7. Contact Us
 
-Questions about your privacy? Contact us at ${
-  siteConfig.resend.fromAdmin.match(/<(.+?)>/)?.[1] || ""
+Questions about privacy? Contact us at ${
+  siteConfig.resend.fromAdmin.match(/<(.+?)>/)?.[1] || "olof@tandemfuture.com"
 }.
 
 This policy is governed by Swedish law.`;

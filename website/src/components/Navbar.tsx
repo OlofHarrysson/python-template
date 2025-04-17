@@ -5,6 +5,7 @@ import { AuthButton } from "@/components/AuthButton";
 const navigationLinks = [
   { href: "/", label: "Home" },
   { href: "/p/dashboard", label: "Dashboard" },
+  { href: "/discover", label: "Discover" },
 ] as const;
 
 const MobileNav = () => {

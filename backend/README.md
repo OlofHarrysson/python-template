@@ -1,7 +1,9 @@
 # Project Template
+
 A minimal template for modern Python projects.
 
 ## How to use this template to create a new project repository
+
 1. Select this template under the "Repository template" dropdown when you create a repository in Github UI.
 2. Clone the repository and open this README.md in your editor to continue from there.
 3. Go over the files in the created repository and understand what each tool/file does.
@@ -11,10 +13,13 @@ A minimal template for modern Python projects.
 7. Finally, remove any information from this readme that is no longer required.
 
 ## How to contribute to this template
+
 1. Create a descriptive issue in this project.
 
 # MY_AWESOME_PROJECT
+
 ## Get started
+
 ### Install UV
 
 ```bash
@@ -22,12 +27,15 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
 ### Install Requirements
+
 Most of the requirements are installed with the following command
+
 ```bash
 cd path/to/git-repo
-poetry env use 3.12 # Tells Poetry which Python version to use
+uv venv
 make install_dependencies
 ```
 
 ### Other Commands
+
 Other useful commands for the project can be found in the [Makefile](Makefile).

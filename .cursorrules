@@ -1,10 +1,13 @@
 # Project Overview
 
+A discovery platform for custom feeds on the AT Protocol (Bluesky), designed to make finding and exploring diverse feeds easy through categorization and search. It will rely on programmatic SEO to get traffic from Google.
+
 Built with Next.js 15, TypeScript, Tailwind CSS, DaisyUI and Python 3.12.
 
 The frontend code is under /website and the backend code is under /backend. I prefer clean code that lets me see where the code fails over verbose "production ready" code that catches all errors.
 
 ## Tech Stack
+
 - **Framework**: Next.js 15 (App Router)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS with custom theme
@@ -19,9 +22,11 @@ The frontend code is under /website and the backend code is under /backend. I pr
     - Modern type hints e.g. list[int] instead of List[int], dict[str, int] instead of Dict[str, int] and int | None instead of Optional[int]
 
 ## Theme Requirements
+
 The application should implement a consistent theme using:
 
 1. **Color System**:
+
    - Use semantic color pairs with DEFAULT/foreground pattern:
      ```typescript
      primary: {

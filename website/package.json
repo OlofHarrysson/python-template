@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "atprotoworld",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,6 +10,7 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
+    "@atproto/api": "^0.14.22",
     "@supabase/ssr": "^0.5.2",
     "@supabase/supabase-js": "^2.48.1",
     "daisyui": "^4.12.23",

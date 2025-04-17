@@ -11,6 +11,8 @@
 
 - Fill in the values in [src/app/site-config.ts](src/app/site-config.ts)
 - And the domain in [next-sitemap.config.js](next-sitemap.config.js)
+- Change the name in [package.json](package.json)
+- Change .cursorrules to describe your project
 
 ### Icon Setup
 
@@ -116,11 +118,11 @@ Go to /privacy/page.tsx and terms/page.tsx and use cursor to create the real TOS
 
 **Initiate Setup:**
 
-From the root of the repo, run the command below and specify ./website for your code path.
-
 ```bash
+cd git/root
 vercel login
 vercel
+# Answer questions and specify ./website for code dir
 ```
 
 Follow the CLI prompts.
@@ -129,7 +131,7 @@ Follow the CLI prompts.
 
 - Add git repository
 - Add env variables
-- Add domain
+- Add domain, use www. as canoical version
 
 ### Resend / Emails
 

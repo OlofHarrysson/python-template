@@ -1,11 +1,11 @@
 export const siteConfig = {
-  name: "Your App Name",
+  name: "ATProto World",
 
   // REQUIRED: a short description of your app for SEO tags (can be overwritten)
-  description: "Your description",
+  description: "The best place to find custom feeds for Bluesky",
 
   // REQUIRED (no https://, not trialing slash at the end, just the naked domain)
-  domain: "yourdomain.com",
+  domain: "www.atprotoworld.com",
 
   auth: {
     // REQUIRED — the path to log in users.

@@ -5,11 +5,11 @@ import { getSEOTags } from "@/lib/seo";
 // You are an excellent lawyer.
 
 // I need your help to write a simple Terms & Services for my website. Here is some context:
-// - Contact information: olof@tandemfuture.com
-// - User data collected: name, email and payment information
+// - Contact information: siteConfig.resend.fromAdmin.match(/<(.+?)>/)?.[1]
+// - User data collected: no user data is collected
 // - Non-personal data collection: web cookies
 // - Governing Law: Sweden
-// - Updates to the Terms: users will be updated by email
+// - Updates to the Terms: since I dont collect their emails, there is no need to update the terms?
 
 // Please write a simple Terms & Services for my site.
 
@@ -29,12 +29,9 @@ These Terms of Service ("Terms") govern your use of ${
 
 By accessing or using our Website, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use our Website.
 
-2. User Accounts
+2. Use of the Platform
 
-- You must provide accurate and complete information when creating an account
-- You are responsible for maintaining the security of your account
-- You must notify us immediately of any unauthorized access to your account
-- We reserve the right to suspend or terminate accounts that violate these Terms
+Our platform helps you discover custom feeds on the AT Protocol (Bluesky). We do not create or control the content of these feeds, only provide a discovery mechanism.
 
 3. User Conduct
 
@@ -43,16 +40,15 @@ You agree not to:
 - Interfere with the proper functioning of the Website
 - Attempt to gain unauthorized access to our systems
 - Use the Website for any illegal or unauthorized purpose
+- Attempt to scrape or mass-collect data from the Website
 
 4. Intellectual Property
 
 All content on the Website, including but not limited to text, graphics, logos, and software, is our property and is protected by intellectual property laws.
 
-5. Payment Terms
+5. Privacy and Cookies
 
-- Payment information is processed securely through our payment providers
-- All fees are non-refundable unless otherwise stated
-- We reserve the right to modify our pricing with reasonable notice
+We use cookies for basic website functionality. We do not collect personal user data.
 
 6. Limitation of Liability
 
@@ -73,7 +69,7 @@ These Terms are governed by the laws of Sweden. Any disputes shall be resolved i
 10. Contact Information
 
 For questions about these Terms, please contact us at ${
-  siteConfig.resend.fromAdmin.match(/<(.+?)>/)?.[1] || ""
+  siteConfig.resend.fromAdmin.match(/<(.+?)>/)?.[1]
 }.`;
 
 export const metadata = getSEOTags({

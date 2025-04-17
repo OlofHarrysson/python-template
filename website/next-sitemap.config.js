@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 const config = {
-  siteUrl: "https://yourdomain.com", // TODO: Add your domain
+  siteUrl: "https://www.atprotoworld.com",
   generateRobotsTxt: true,
   exclude: ["/twitter-image.*", "/opengraph-image.*", "/icon.*"],
 };
