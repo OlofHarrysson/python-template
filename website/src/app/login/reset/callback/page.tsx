@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useActionState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { resetPassword, type FormState } from "@/lib/auth/actions";
 import AuthLayout from "@/components/auth/AuthLayout";
@@ -12,22 +12,34 @@ const initialState: FormState = {
   errors: {},
 };
 
-export default function ResetPasswordCallbackPage() {
-  const [state, action] = useActionState(resetPassword, initialState);
-  const [isValidLink, setIsValidLink] = useState(false);
-  const router = useRouter();
+// Component that handles search params - needs to be wrapped in Suspense
+function SearchParamsHandler({
+  onParamsChange,
+}: {
+  onParamsChange: (userId: string | null, secret: string | null) => void;
+}) {
   const searchParams = useSearchParams();
 
   useEffect(() => {
     const userId = searchParams.get("userId");
     const secret = searchParams.get("secret");
+    onParamsChange(userId, secret);
+  }, [searchParams, onParamsChange]);
 
-    if (!userId || !secret) {
-      setIsValidLink(false);
-    } else {
-      setIsValidLink(true);
-    }
-  }, [searchParams]);
+  return null;
+}
+
+// Main reset password component
+function ResetPasswordContent({
+  userId,
+  secret,
+}: {
+  userId: string | null;
+  secret: string | null;
+}) {
+  const [state, action] = useActionState(resetPassword, initialState);
+
+  const isValidLink = !!(userId && secret);
 
   if (!isValidLink) {
     return (
@@ -70,16 +82,8 @@ export default function ResetPasswordCallbackPage() {
     >
       <form action={action} className="space-y-6">
         {/* Hidden fields for userId and secret */}
-        <input
-          type="hidden"
-          name="userId"
-          value={searchParams.get("userId") || ""}
-        />
-        <input
-          type="hidden"
-          name="secret"
-          value={searchParams.get("secret") || ""}
-        />
+        <input type="hidden" name="userId" value={userId || ""} />
+        <input type="hidden" name="secret" value={secret || ""} />
 
         <div>
           <label htmlFor="password" className="sr-only">
@@ -123,5 +127,27 @@ export default function ResetPasswordCallbackPage() {
         </div>
       </form>
     </AuthLayout>
+  );
+}
+
+export default function ResetPasswordCallbackPage() {
+  const [userId, setUserId] = useState<string | null>(null);
+  const [secret, setSecret] = useState<string | null>(null);
+
+  const handleParamsChange = (
+    newUserId: string | null,
+    newSecret: string | null
+  ) => {
+    setUserId(newUserId);
+    setSecret(newSecret);
+  };
+
+  return (
+    <>
+      <Suspense fallback={null}>
+        <SearchParamsHandler onParamsChange={handleParamsChange} />
+      </Suspense>
+      <ResetPasswordContent userId={userId} secret={secret} />
+    </>
   );
 }
